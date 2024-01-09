@@ -11,6 +11,7 @@ class GetWeatherCubit extends Cubit<WeatherState> {
 
   WeatherModel? weatherModel;
 
+
 // 3 # create function
   getWeather (value) async {
     try {

@@ -20,8 +20,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text('The Weather', style: TextStyle(fontSize: 24)),
-        centerTitle: true,
+        title: const Text('Today\'s Weather', style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
+        //centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         //foregroundColor: Colors.white,
         //backgroundColor: Theme.of(context).colorScheme.primary,
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const SearchScreen()));
             },
-            icon: const Icon(Icons.search),
+            icon: const Icon(Icons.search,size: 30),
           ),
         ],
       ),

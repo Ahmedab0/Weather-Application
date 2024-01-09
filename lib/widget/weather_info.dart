@@ -8,13 +8,12 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WeatherModel weatherModel = BlocProvider.of<GetWeatherCubit>(context,listen: true).weatherModel!;
+    WeatherModel weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           Theme.of(context).primaryColor,
-          Theme.of(context).primaryColor.withOpacity(0.8),
           Theme.of(context).primaryColor.withOpacity(0.6),
           Theme.of(context).primaryColor.withOpacity(0.4),
           Theme.of(context).primaryColor.withOpacity(0.2),

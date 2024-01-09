@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -21,11 +22,11 @@ class WeatherServices {
       return weatherModel;
     } on DioException catch (e) {
       final String messageError = e.response?.data['error']['message'] ??
-          'Oops There was an error, try later';
+          'OOPS There was an error, try later';
       throw Exception(messageError);
     } catch (e) {
       log('$e');
-      throw Exception('Oops There was an error, try later');
+      throw Exception('OOPS There was an error, try later');
     }
   }
 }
