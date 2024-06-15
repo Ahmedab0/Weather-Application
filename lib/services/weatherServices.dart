@@ -23,10 +23,12 @@ class WeatherServices {
     } on DioException catch (e) {
       final String messageError = e.response?.data['error']['message'] ??
           'OOPS There was an error, try later';
+      log('services e===>>> $messageError');
+
       throw Exception(messageError);
-    } catch (e) {
+    } /*catch (e) {
       log('$e');
       throw Exception('OOPS There was an error, try later');
-    }
+    }*/
   }
 }

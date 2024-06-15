@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
@@ -36,19 +38,26 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: BlocBuilder<GetWeatherCubit, WeatherState>(
-        builder: (context, state) {
-          if (state is InitialWeatherState) {
-            return const NoWeather();
+        builder: (context, state) { //
+          if (state is WeatherLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else if (state is WeatherLoadSuccessState) {
             return const WeatherInfo();
-          } else {
-            return const Center(
+          } else if (state is WeatherFailureState){
+            log('home => ${state.errorMsg}');
+            return Center(
                 child: Text(
-              'Oops There was an error!',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              //'Oops There was an error!'
+                 state.errorMsg
+                  ,
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ));
+          } else {
+            return const NoWeather();
           }
-        },
+        }, //
       ),
     );
   }
